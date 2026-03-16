@@ -1,0 +1,163 @@
+{
+  "updatedAt": "2026-03-16T17:20:00+09:00",
+  "source": "https://gekiyasu.blog/feed",
+  "sourceLabel": "安いぞ！激安特価ニュース速報",
+  "siteTitle": "生活防衛セール監視",
+  "meta": {
+    "rulesVersion": "2026-03-gekiyasu-v2",
+    "siteMinScore": 7,
+    "discordMinScore": 11,
+    "sourceCount": 1
+  },
+  "items": [
+    {
+      "id": "gekiyasu-20260316-rice",
+      "sourceId": "gekiyasu",
+      "sourceLabel": "安いぞ！激安特価ニュース速報",
+      "title": "パールライス 福島県産 無洗米 天のつぶ 5kg 令和7年産",
+      "url": "https://gekiyasu.blog/",
+      "shop": "Amazon系",
+      "category": "食品・飲料",
+      "segment": "本命",
+      "score": 15,
+      "badge": "本命",
+      "priceText": "3,548円",
+      "rawDiscountText": "10%OFFクーポン",
+      "unitPriceText": "5kg / お米",
+      "tags": [
+        "クーポン",
+        "定期便",
+        "Amazon",
+        "食品"
+      ],
+      "reasons": [
+        "10%OFFクーポン",
+        "食品カテゴリ",
+        "Amazon系",
+        "定期便ワードあり"
+      ],
+      "note": "生活防衛寄りの定番。まずここを見ればサイトの温度感がわかる形。",
+      "excerpt": "トップの新着欄で 3,548円、10%OFFクーポン適用価格として掲載されている案件。",
+      "publishedAt": "2026-03-16T10:30:00+09:00",
+      "updatedAt": "2026-03-16T10:30:00+09:00"
+    },
+    {
+      "id": "gekiyasu-20260315-soymilk",
+      "sourceId": "gekiyasu",
+      "sourceLabel": "安いぞ！激安特価ニュース速報",
+      "title": "みどり豆乳 成分無調整 1000ml×6本",
+      "url": "https://gekiyasu.blog/",
+      "shop": "Amazon系",
+      "category": "食品・飲料",
+      "segment": "本命",
+      "score": 16,
+      "badge": "本命",
+      "priceText": "1,060円～",
+      "rawDiscountText": "30%OFFクーポン",
+      "unitPriceText": "1本あたり177円",
+      "tags": [
+        "クーポン",
+        "定期便",
+        "Amazon",
+        "食品"
+      ],
+      "reasons": [
+        "30%OFFクーポン",
+        "単価あり",
+        "食品カテゴリ",
+        "Amazon系"
+      ],
+      "note": "単価が見える案件は、X でもサイトでも説明しやすい。",
+      "excerpt": "トップの新着欄で 1,060円～、定期おトク便＋30%OFFクーポン適用価格として掲載。",
+      "publishedAt": "2026-03-15T20:10:00+09:00",
+      "updatedAt": "2026-03-15T20:10:00+09:00"
+    },
+    {
+      "id": "gekiyasu-20260315-calpis",
+      "sourceId": "gekiyasu",
+      "sourceLabel": "安いぞ！激安特価ニュース速報",
+      "title": "カルピスウォーター 1.5L×16本",
+      "url": "https://gekiyasu.blog/",
+      "shop": "Amazon系",
+      "category": "セール・キャンペーン",
+      "segment": "生活防衛",
+      "score": 12,
+      "badge": "生活防衛",
+      "priceText": "1,914円",
+      "rawDiscountText": "2点で20%OFF",
+      "unitPriceText": "1本あたり120円",
+      "tags": [
+        "定期便",
+        "キャンペーン",
+        "Amazon"
+      ],
+      "reasons": [
+        "20%OFF表現あり",
+        "単価あり",
+        "期限あり",
+        "生活防衛寄り"
+      ],
+      "note": "定期便や複数購入条件は、自動通知に向く。",
+      "excerpt": "本日まで定期おトク便2セットの割引価格、15日まで 2点で20%OFF 対象品として掲載。",
+      "publishedAt": "2026-03-15T11:55:00+09:00",
+      "updatedAt": "2026-03-15T11:55:00+09:00"
+    },
+    {
+      "id": "gekiyasu-20260315-curel",
+      "sourceId": "gekiyasu",
+      "sourceLabel": "安いぞ！激安特価ニュース速報",
+      "title": "キュレル 泡洗顔料 つめかえ用 130ml",
+      "url": "https://gekiyasu.blog/",
+      "shop": "Amazon系",
+      "category": "日用品",
+      "segment": "生活防衛",
+      "score": 11,
+      "badge": "生活防衛",
+      "priceText": "1,320円",
+      "rawDiscountText": "430pt",
+      "unitPriceText": "",
+      "tags": [
+        "ポイント",
+        "Amazon",
+        "日用品"
+      ],
+      "reasons": [
+        "ポイントあり",
+        "日用品カテゴリ",
+        "Amazon系"
+      ],
+      "note": "ポイント還元型の案件。割引率だけでは拾えない枠。",
+      "excerpt": "1,320円、ポイント 430pt、販売・発送 Amazon と掲載。",
+      "publishedAt": "2026-03-15T10:30:00+09:00",
+      "updatedAt": "2026-03-15T10:30:00+09:00"
+    },
+    {
+      "id": "gekiyasu-20260315-sanwa",
+      "sourceId": "gekiyasu",
+      "sourceLabel": "安いぞ！激安特価ニュース速報",
+      "title": "サンワダイレクト 週末限定 全品送料無料",
+      "url": "https://gekiyasu.blog/",
+      "shop": "サンワダイレクト",
+      "category": "セール・キャンペーン",
+      "segment": "レーダー",
+      "score": 9,
+      "badge": "レーダー",
+      "priceText": "全品送料無料",
+      "rawDiscountText": "送料無料",
+      "unitPriceText": "",
+      "tags": [
+        "セール",
+        "送料無料"
+      ],
+      "reasons": [
+        "送料無料表現",
+        "週末限定",
+        "店単位のセール"
+      ],
+      "note": "商品単位ではないが、イベント系として見る価値がある案件。",
+      "excerpt": "週末限定の全品送料無料、対象地域ありと掲載。",
+      "publishedAt": "2026-03-15T08:00:00+09:00",
+      "updatedAt": "2026-03-15T08:00:00+09:00"
+    }
+  ]
+}

@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>生活防衛セール監視</title>
+  <meta name="description" content="RSSから拾ったセール候補を、生活防衛向けに絞って見やすく並べるGitHub Pages向けの静的サイトです。" />
+  <style>
+    :root{
+      --bg:#f6f5ef;
+      --card:#ffffff;
+      --text:#111111;
+      --muted:#667085;
+      --line:#e7e5dd;
+      --chip:#f6f4ee;
+      --good:#dcfce7;
+      --good-text:#166534;
+      --warn:#fff7ed;
+      --warn-text:#9a3412;
+      --hot:#111111;
+      --hot-text:#ffffff;
+      --shadow:0 8px 32px rgba(0,0,0,.05);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Hiragino Sans","Noto Sans JP","Yu Gothic UI",sans-serif;
+      line-height:1.5;
+    }
+    .wrap{max-width:1140px;margin:0 auto;padding:22px 16px 80px;}
+    .hero{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:24px;
+      box-shadow:var(--shadow);
+      margin-bottom:16px;
+    }
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:7px 12px;border-radius:999px;background:#111;color:#fff;
+      font-size:12px;font-weight:800;
+    }
+    h1{font-size:clamp(28px,4vw,42px);line-height:1.08;margin:12px 0 10px}
+    .lead{margin:0;color:var(--muted);max-width:760px;font-size:15px}
+    .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:18px}
+    .stat{
+      background:#faf9f6;border:1px solid var(--line);border-radius:18px;padding:16px;
+    }
+    .stat-label{font-size:12px;color:var(--muted);margin-bottom:6px}
+    .stat-value{font-size:26px;font-weight:900;line-height:1.05}
+    .stat-sub{margin-top:6px;font-size:12px;color:var(--muted)}
+    .toolbar{
+      display:flex;flex-direction:column;gap:10px;margin:16px 0 18px;
+    }
+    .toolbar-row{
+      display:flex;gap:10px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;
+      background:var(--card);border:1px solid var(--line);border-radius:22px;padding:14px 16px;
+      box-shadow:var(--shadow);
+    }
+    .toolbar-label{font-size:12px;color:var(--muted);min-width:64px;padding-top:8px}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;flex:1}
+    .chip{
+      border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 14px;
+      font-size:14px;font-weight:700;cursor:pointer;
+    }
+    .chip.active{background:#111;color:#fff;border-color:#111}
+    .hint{font-size:13px;color:var(--muted)}
+    .section-head{
+      display:flex;align-items:end;justify-content:space-between;gap:12px;flex-wrap:wrap;
+      margin:14px 0 10px;
+    }
+    .section-title{font-size:20px;font-weight:900}
+    .section-sub{font-size:13px;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .card{
+      background:var(--card);border:1px solid var(--line);border-radius:24px;padding:18px;
+      box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;min-height:300px;
+    }
+    .topline{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .badge{
+      display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:900;
+      background:var(--good);color:var(--good-text);
+    }
+    .badge.watch{background:var(--warn);color:var(--warn-text)}
+    .badge.hot{background:var(--hot);color:var(--hot-text)}
+    .meta{text-align:right;font-size:12px;color:var(--muted);white-space:nowrap}
+    .title{margin:0;font-size:19px;font-weight:900;line-height:1.35}
+    .price{font-size:30px;font-weight:900;line-height:1.05;letter-spacing:-.02em}
+    .sub{font-size:13px;color:var(--muted)}
+    .row{display:flex;gap:8px;flex-wrap:wrap}
+    .mini{
+      display:inline-flex;align-items:center;padding:7px 10px;border-radius:999px;background:var(--chip);
+      font-size:12px;font-weight:800;
+    }
+    .reason-box{
+      display:flex;flex-direction:column;gap:6px;background:#faf9f6;border:1px solid var(--line);
+      border-radius:16px;padding:12px;
+    }
+    .reason-title{font-size:12px;color:var(--muted);font-weight:800}
+    .reason-list{display:flex;gap:6px;flex-wrap:wrap}
+    .reason{
+      display:inline-flex;align-items:center;padding:6px 8px;border-radius:999px;background:#fff;
+      border:1px solid var(--line);font-size:12px;font-weight:700;
+    }
+    .note{font-size:14px;color:#334155}
+    details.more{
+      margin-top:auto;border-top:1px dashed var(--line);padding-top:10px;
+    }
+    details.more summary{cursor:pointer;font-size:13px;color:var(--muted);font-weight:700}
+    .more-body{margin-top:8px;font-size:13px;color:#475467}
+    .actions{
+      margin-top:8px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    }
+    .score{font-size:13px;color:var(--muted)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;text-decoration:none;background:#111;color:#fff;
+      border-radius:999px;padding:10px 14px;font-size:14px;font-weight:900;
+    }
+    .empty{
+      background:var(--card);border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:var(--shadow);
+      color:var(--muted);
+    }
+    .footer-note{margin-top:20px;font-size:13px;color:var(--muted)}
+    code{background:#f3f1ea;border-radius:8px;padding:2px 6px}
+    @media (max-width: 980px){
+      .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media (max-width: 680px){
+      .wrap{padding:16px 12px 64px}
+      .hero{padding:18px}
+      .stats{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .price{font-size:26px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="eyebrow">RSS × n8n × GitHub Pages</div>
+      <h1>生活防衛セール監視</h1>
+      <p class="lead">
+        まずは <code>gekiyasu.blog/feed</code> を母艦にして、生活防衛に寄る案件だけを見やすく並べる形です。
+        GitHub側は表示だけ、n8n側は「拾う → 点数化 → 通知 → sales.json更新」に切っています。
+      </p>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-label">現在の表示件数</div>
+          <div class="stat-value" id="countStat">-</div>
+          <div class="stat-sub">siteMinScore 以上だけ表示</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">本命</div>
+          <div class="stat-value" id="homerunStat">-</div>
+          <div class="stat-sub">高得点でそのまま見に行く候補</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">生活防衛</div>
+          <div class="stat-value" id="dailyStat">-</div>
+          <div class="stat-sub">食品・日用品を優先</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">最終更新</div>
+          <div class="stat-value" id="updatedStat">-</div>
+          <div class="stat-sub" id="sourceStat">-</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="toolbar">
+      <div class="toolbar-row">
+        <div class="toolbar-label">見たい束</div>
+        <div class="chips" id="segmentChips"></div>
+        <div class="hint" id="rulesHint">点数の高い順に並べます。</div>
+      </div>
+      <div class="toolbar-row">
+        <div class="toolbar-label">カテゴリ</div>
+        <div class="chips" id="categoryChips"></div>
+        <div class="hint">将来 RSS を増やしても、ここは同じ見た目で足せます。</div>
+      </div>
+    </div>
+
+    <div class="section-head">
+      <div>
+        <div class="section-title" id="sectionTitle">いま見る候補</div>
+        <div class="section-sub" id="sectionSub">強い順に上から並びます。</div>
+      </div>
+    </div>
+
+    <section class="grid" id="grid"></section>
+
+    <p class="footer-note">
+      このページは <code>sales.json</code> を読むだけです。GitHub Pages は branch / root か <code>/docs</code> を公開元にできるので、
+      更新は n8n から JSON 1ファイルを差し替える前提にしています。
+    </p>
+  </div>
+
+  <script>
+    const els = {
+      grid: document.getElementById('grid'),
+      segmentChips: document.getElementById('segmentChips'),
+      categoryChips: document.getElementById('categoryChips'),
+      countStat: document.getElementById('countStat'),
+      homerunStat: document.getElementById('homerunStat'),
+      dailyStat: document.getElementById('dailyStat'),
+      updatedStat: document.getElementById('updatedStat'),
+      sourceStat: document.getElementById('sourceStat'),
+      sectionTitle: document.getElementById('sectionTitle'),
+      sectionSub: document.getElementById('sectionSub'),
+      rulesHint: document.getElementById('rulesHint'),
+    };
+
+    const state = {
+      raw: [],
+      filtered: [],
+      segment: 'すべて',
+      category: 'すべて',
+      meta: {},
+      sourceLabel: '',
+    };
+
+    function formatDate(input){
+      if (!input) return '---';
+      const d = new Date(input);
+      if (Number.isNaN(d.getTime())) return input;
+      return d.toLocaleString('ja-JP', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    }
+
+    function escapeHtml(str){
+      return String(str ?? '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+    }
+
+    function badgeClass(item){
+      if (item.segment === '本命') return 'badge hot';
+      if (item.segment === 'レーダー') return 'badge watch';
+      return 'badge';
+    }
+
+    function segmentLabel(item){
+      return item.badge || item.segment || '候補';
+    }
+
+    function sortItems(items){
+      return [...items].sort((a, b) => {
+        if ((b.score || 0) !== (a.score || 0)) return (b.score || 0) - (a.score || 0);
+        return String(b.updatedAt || b.publishedAt || '').localeCompare(String(a.updatedAt || a.publishedAt || ''));
+      });
+    }
+
+    function buildChipMarkup(names, activeName){
+      return names.map(name => {
+        const safe = escapeHtml(name);
+        const active = activeName === name ? 'active' : '';
+        return `<button class="chip ${active}" data-name="${safe}">${safe}</button>`;
+      }).join('');
+    }
+
+    function renderChips(){
+      const segmentNames = ['すべて', ...new Set(state.raw.map(item => item.segment).filter(Boolean))];
+      const categoryNames = ['すべて', ...new Set(state.raw.map(item => item.category).filter(Boolean))];
+      els.segmentChips.innerHTML = buildChipMarkup(segmentNames, state.segment);
+      els.categoryChips.innerHTML = buildChipMarkup(categoryNames, state.category);
+
+      els.segmentChips.querySelectorAll('.chip').forEach(btn => btn.addEventListener('click', () => {
+        state.segment = btn.dataset.name;
+        applyFilter();
+      }));
+      els.categoryChips.querySelectorAll('.chip').forEach(btn => btn.addEventListener('click', () => {
+        state.category = btn.dataset.name;
+        applyFilter();
+      }));
+    }
+
+    function applyFilter(){
+      let items = [...state.raw];
+      if (state.segment !== 'すべて') items = items.filter(item => item.segment === state.segment);
+      if (state.category !== 'すべて') items = items.filter(item => item.category === state.category);
+      state.filtered = sortItems(items);
+      renderStats();
+      renderGrid();
+    }
+
+    function renderStats(){
+      const homerun = state.raw.filter(item => item.segment === '本命').length;
+      const daily = state.raw.filter(item => item.segment === '生活防衛').length;
+      els.countStat.textContent = String(state.filtered.length);
+      els.homerunStat.textContent = String(homerun);
+      els.dailyStat.textContent = String(daily);
+      els.rulesHint.textContent = `siteMinScore ${state.meta.siteMinScore ?? '-'} / discordMinScore ${state.meta.discordMinScore ?? '-'}`;
+      const segmentText = state.segment === 'すべて' ? '全候補' : state.segment;
+      const categoryText = state.category === 'すべて' ? '全カテゴリ' : state.category;
+      els.sectionTitle.textContent = `${segmentText} × ${categoryText}`;
+      els.sectionSub.textContent = `RSS: ${state.sourceLabel || '-'} / ${state.filtered.length}件`;
+    }
+
+    function renderGrid(){
+      if (!state.filtered.length){
+        els.grid.innerHTML = `<article class="empty">まだ表示対象がありません。n8n の scoreThreshold や siteMinScore を見直すか、feed の流量を確認してください。</article>`;
+        return;
+      }
+      els.grid.innerHTML = state.filtered.map(item => {
+        const reasons = (item.reasons || []).map(reason => `<span class="reason">${escapeHtml(reason)}</span>`).join('');
+        const tags = (item.tags || []).map(tag => `<span class="mini">${escapeHtml(tag)}</span>`).join('');
+        const note = item.note ? escapeHtml(item.note) : 'メモなし';
+        const excerpt = item.excerpt ? escapeHtml(item.excerpt) : '本文抜粋なし';
+        const detailBits = [
+          item.rawDiscountText ? `割引表現: ${escapeHtml(item.rawDiscountText)}` : '',
+          item.unitPriceText ? `単価: ${escapeHtml(item.unitPriceText)}` : '',
+          item.shop ? `ショップ: ${escapeHtml(item.shop)}` : '',
+          item.sourceLabel ? `ソース: ${escapeHtml(item.sourceLabel)}` : '',
+        ].filter(Boolean).join('<br>');
+        const dateLabel = formatDate(item.updatedAt || item.publishedAt);
+        return `
+          <article class="card">
+            <div class="topline">
+              <span class="${badgeClass(item)}">${escapeHtml(segmentLabel(item))}</span>
+              <div class="meta">${dateLabel}<br>score ${Number(item.score ?? 0)} / 20</div>
+            </div>
+            <div>
+              <p class="title">${escapeHtml(item.title || '無題')}</p>
+              <div class="price">${escapeHtml(item.priceText || '価格確認')}</div>
+              <div class="sub">${escapeHtml(item.shop || 'ショップ未判定')} / ${escapeHtml(item.category || '未分類')}</div>
+            </div>
+            <div class="row">${tags}</div>
+            <div class="reason-box">
+              <div class="reason-title">この案件を残した理由</div>
+              <div class="reason-list">${reasons || '<span class="reason">スコアのみ</span>'}</div>
+            </div>
+            <div class="note">${note}</div>
+            <details class="more">
+              <summary>補足を見る</summary>
+              <div class="more-body">${detailBits || '補足なし'}<br><br>${excerpt}</div>
+            </details>
+            <div class="actions">
+              <div class="score">${escapeHtml(item.segment || '候補')} / ${escapeHtml(item.sourceLabel || state.sourceLabel || '')}</div>
+              <a class="btn" href="${escapeHtml(item.url || '#')}" target="_blank" rel="noopener noreferrer">元ページを見る</a>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    async function boot(){
+      try{
+        const res = await fetch(`./sales.json?t=${Date.now()}`);
+        const data = await res.json();
+        state.raw = sortItems(Array.isArray(data) ? data : (data.items || []));
+        state.meta = data.meta || {};
+        state.sourceLabel = data.sourceLabel || data.source || 'sales.json';
+        els.updatedStat.textContent = formatDate(data.updatedAt);
+        els.sourceStat.textContent = `${state.sourceLabel} / rule ${state.meta.rulesVersion || '-'}`;
+        renderChips();
+        applyFilter();
+      }catch(err){
+        els.grid.innerHTML = `<article class="empty">読み込み失敗: ${escapeHtml(String(err))}</article>`;
+      }
+    }
+
+    boot();
+  </script>
+</body>
+</html>
