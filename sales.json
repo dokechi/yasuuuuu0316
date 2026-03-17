@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-16T07:35:10.005Z",
+  "updatedAt": "2026-03-17T00:29:10.632Z",
   "source": "https://gekiyasu.blog/feed",
   "sourceLabel": "安いぞ！激安特価ニュース速報",
   "siteTitle": "生活防衛セール監視",
@@ -83,6 +83,42 @@
       "updatedAt": "2026-03-15T12:32:32.000Z"
     },
     {
+      "id": "https://gekiyasu.blog/?p=154108",
+      "sourceId": "gekiyasu",
+      "sourceLabel": "安いぞ！激安特価ニュース速報",
+      "title": "【828円～】ベビースター ミニ 20g×30袋",
+      "url": "https://gekiyasu.blog/archives/154108",
+      "shop": "Amazon系",
+      "category": "食品・飲料",
+      "segment": "生活防衛",
+      "score": 9,
+      "badge": "生活防衛",
+      "priceText": "828円",
+      "currentPriceYen": 828,
+      "percentOff": 10,
+      "yenOff": 0,
+      "points": 0,
+      "rawDiscountText": "10%OFF",
+      "unitPriceText": "",
+      "tags": [
+        "クーポン",
+        "定期便",
+        "Amazon",
+        "食品"
+      ],
+      "reasons": [
+        "10%OFF",
+        "クーポン",
+        "定期便",
+        "Amazon系",
+        "生活防衛カテゴリ"
+      ],
+      "note": "生活防衛寄り。食品・日用品を優先。",
+      "excerpt": "【828円～】ベビースター ミニ 20g×30袋 ベビースター ミニ 20g×30袋が832円～定期おトク便＋10%OFFクーポン適用価格(決済画面で適用できない場合は終了)。1袋あたり28円 ※定期おトク便はアカウントページからいつでもキャンセル可能です。 販売･発送 […] ベビースター ミニ 20g×30袋が832円～定期おトク便＋…",
+      "publishedAt": "2026-03-16T13:00:07.000Z",
+      "updatedAt": "2026-03-16T13:00:07.000Z"
+    },
+    {
       "id": "https://gekiyasu.blog/?p=150842",
       "sourceId": "gekiyasu",
       "sourceLabel": "安いぞ！激安特価ニュース速報",
@@ -117,39 +153,6 @@
       "excerpt": "【3,548円】パールライス 福島県産 無洗米 天のつぶ 5kg 令和7年産 パールライス 福島県産 無洗米 天のつぶ 5kg 令和7年産が3,548円10%OFFクーポン適用価格(決済画面で適用できない場合は終了)。 ※定期おトク便はアカウントページからいつでもキャンセル可能です。 販売･発送： […] パールライス 福島県産 無洗米 …",
       "publishedAt": "2026-03-15T15:33:04.000Z",
       "updatedAt": "2026-03-15T15:33:04.000Z"
-    },
-    {
-      "id": "https://gekiyasu.blog/?p=78587",
-      "sourceId": "gekiyasu",
-      "sourceLabel": "安いぞ！激安特価ニュース速報",
-      "title": "【178,499円】日立 冷蔵庫 617L R-HW62V 日本製 設置工事110円",
-      "url": "https://gekiyasu.blog/archives/78587",
-      "shop": "Amazon系",
-      "category": "セール・キャンペーン",
-      "segment": "レーダー",
-      "score": 9,
-      "badge": "レーダー",
-      "priceText": "178,499円",
-      "currentPriceYen": 178499,
-      "percentOff": 0,
-      "yenOff": 10000,
-      "points": 0,
-      "rawDiscountText": "10000円OFF",
-      "unitPriceText": "",
-      "tags": [
-        "クーポン",
-        "Amazon",
-        "セール"
-      ],
-      "reasons": [
-        "10000円OFF",
-        "クーポン",
-        "Amazon系"
-      ],
-      "note": "店セールや補助線として見る枠。",
-      "excerpt": "【178,499円】日立 冷蔵庫 617L R-HW62V 日本製 設置工事110円 日立 冷蔵庫 617L R-HW62V ゴールド 日本製 が178,499円10,000円OFFクーポン適用価格。設置・旧品回収が110円キャンペーン(リサイクル費用は現地で別途)。 大容量冷凍182L 600Lクラス、 […] 日立 冷蔵庫 617L …",
-      "publishedAt": "2026-03-15T01:21:50.000Z",
-      "updatedAt": "2026-03-15T01:21:50.000Z"
     },
     {
       "id": "https://gekiyasu.blog/?p=154080",
