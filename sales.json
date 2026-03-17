@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-17T00:29:10.632Z",
+  "updatedAt": "2026-03-17T05:27:53.966Z",
   "source": "https://gekiyasu.blog/feed",
   "sourceLabel": "安いぞ！激安特価ニュース速報",
   "siteTitle": "生活防衛セール監視",
@@ -23,9 +23,12 @@
       "badge": "本命",
       "priceText": "1,060円",
       "currentPriceYen": 1060,
+      "originalPriceYen": 1514,
       "percentOff": 30,
       "yenOff": 0,
       "points": 0,
+      "dropText": "1,514円→1,060円",
+      "discountSummary": "30%OFF",
       "rawDiscountText": "30%OFF",
       "unitPriceText": "1本・1個あたり 177円",
       "tags": [
@@ -59,9 +62,12 @@
       "badge": "レーダー",
       "priceText": "1,914円",
       "currentPriceYen": 1914,
+      "originalPriceYen": 2393,
       "percentOff": 20,
       "yenOff": 0,
       "points": 0,
+      "dropText": "2,393円→1,914円",
+      "discountSummary": "20%OFF",
       "rawDiscountText": "20%OFF",
       "unitPriceText": "1本・1個あたり 120円",
       "tags": [
@@ -95,9 +101,12 @@
       "badge": "生活防衛",
       "priceText": "828円",
       "currentPriceYen": 828,
+      "originalPriceYen": 920,
       "percentOff": 10,
       "yenOff": 0,
       "points": 0,
+      "dropText": "920円→828円",
+      "discountSummary": "10%OFF",
       "rawDiscountText": "10%OFF",
       "unitPriceText": "",
       "tags": [
@@ -131,9 +140,12 @@
       "badge": "生活防衛",
       "priceText": "3,548円",
       "currentPriceYen": 3548,
+      "originalPriceYen": 3942,
       "percentOff": 10,
       "yenOff": 0,
       "points": 0,
+      "dropText": "3,942円→3,548円",
+      "discountSummary": "10%OFF",
       "rawDiscountText": "10%OFF",
       "unitPriceText": "",
       "tags": [
@@ -167,9 +179,12 @@
       "badge": "レーダー",
       "priceText": "29,300円",
       "currentPriceYen": 29300,
+      "originalPriceYen": 36300,
       "percentOff": 0,
       "yenOff": 7000,
       "points": 0,
+      "dropText": "36,300円→29,300円",
+      "discountSummary": "7,000円引き",
       "rawDiscountText": "7000円OFF",
       "unitPriceText": "",
       "tags": [
@@ -199,9 +214,12 @@
       "badge": "レーダー",
       "priceText": "2,742円",
       "currentPriceYen": 2742,
+      "originalPriceYen": 3242,
       "percentOff": 0,
       "yenOff": 500,
       "points": 0,
+      "dropText": "3,242円→2,742円",
+      "discountSummary": "500円引き",
       "rawDiscountText": "500円OFF / 送料無料",
       "unitPriceText": "",
       "tags": [
@@ -220,5 +238,10 @@
       "publishedAt": "2026-03-15T04:10:34.000Z",
       "updatedAt": "2026-03-15T04:10:34.000Z"
     }
-  ]
+  ],
+  "ai": {
+    "generatedAt": "2026-03-17T05:27:54.034Z",
+    "model": "gemini-2.5-flash",
+    "posts": []
+  }
 }
