@@ -138,7 +138,46 @@
     }
   </style>
 </head>
+  <style>
+.mode-nav{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.mode-nav a{
+  flex: 1;
+  text-align: center;
+  padding: 12px 10px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  color: #374151;
+  background: #f3f4f6;
+  transition: .2s ease;
+}
+
+.mode-nav a.active{
+  background: #111827;
+  color: #fff;
+}
+
+.mode-nav a:hover{
+  transform: translateY(-1px);
+}
+</style>
 <body>
+  <nav class="mode-nav">
+  <a href="/yasuuma/index.html" data-page="yutai">優待を探す</a>
+  <a href="/yasuuuuu0316/" data-page="sale">セールを見る</a>
+  <a href="/yasuuma/money.html" data-page="money">固定費を下げる</a>
+</nav>
   <div class="wrap">
     <section class="hero">
       <div class="eyebrow">RSS × n8n × GitHub Pages</div>
@@ -373,5 +412,16 @@
 
     boot();
   </script>
+  <script>
+  const path = location.pathname;
+
+  let current = "yutai";
+  if (path.includes("/yasuuuuu0316/")) current = "sale";
+  if (path.includes("/money.html")) current = "money";
+
+  document.querySelectorAll(".mode-nav a").forEach(a => {
+    if (a.dataset.page === current) a.classList.add("active");
+  });
+</script>
 </body>
 </html>
